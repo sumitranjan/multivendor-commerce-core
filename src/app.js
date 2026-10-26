@@ -3,9 +3,9 @@ const errorHandler = require("./middlewares/error.middleware");
 const AppError = require("./utils/AppError");
 const asyncHandler = require("./utils/asyncHandler");
 const notFoundHandler = require("./middlewares/notFound.middleware");
+const authRouter = require("./modules/auth/auth.routes");
 
 const app = express();
-
 app.use(express.json());
 
 app.get("/api/health", (req, res) => {
@@ -25,6 +25,8 @@ app.get(
     throw new Error("Something went wrong asynchronously");
   }),
 );
+
+app.use("/api/auth", authRouter);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
