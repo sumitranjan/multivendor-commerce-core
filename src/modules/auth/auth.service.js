@@ -27,7 +27,6 @@ const registerUser = async (body) => {
   });
 
   const userObject = user.toObject();
-  console.log(typeof userObject);
 
   delete userObject.password;
 

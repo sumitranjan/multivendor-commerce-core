@@ -4,7 +4,7 @@ const validate = (schema) => {
   return (req, res, next) => {
     const result = schema.safeParse(req.body);
 
-    console.log("validation result : ", result);
+    // console.log("validation result : ", result);
 
     if (!result.success) {
       const errors = result.error.issues.map((issue) => ({
