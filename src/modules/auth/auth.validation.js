@@ -6,4 +6,9 @@ const registerSchema = z.object({
   password: z.string().min(8).max(100),
 });
 
-module.exports = { registerSchema };
+const loginSchema = z.object({
+  email: z.string().trim().email(),
+  password: z.string().min(1, "Password is required"),
+});
+
+module.exports = { registerSchema, loginSchema };

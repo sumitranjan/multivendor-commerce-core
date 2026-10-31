@@ -4,9 +4,11 @@ const AppError = require("./utils/AppError");
 const asyncHandler = require("./utils/asyncHandler");
 const notFoundHandler = require("./middlewares/notFound.middleware");
 const authRouter = require("./modules/auth/auth.routes");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 app.get("/api/health", (req, res) => {
   res.status(200).json({
